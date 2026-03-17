@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/Taiwan-Lottery-Simulator/',
+  base: '/Taiwan_Lottery_Simulator/',
 })
