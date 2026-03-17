@@ -473,6 +473,13 @@ export default function TaiwanLotteryGenerator() {
     "請先選擇模式、固定號碼與排除號碼，再開始抽號碼。"
   );
 
+  useEffect(() => {
+    try {
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {}
+  }, []);
+
   const config = GAME_CONFIGS[gameKey];
   const excludedByPool = excludedByGame[gameKey];
   const forcedByPool = forcedByGame[gameKey];
@@ -980,11 +987,28 @@ export default function TaiwanLotteryGenerator() {
                 ))
               )}
             </div>
+
+            {/* Google AdSense */}
+            <div className="mt-6 flex justify-center">
+              <ins
+                className="adsbygoogle"
+                style={{
+                  display: "block",
+                  width: "100%",
+                  maxWidth: "728px",
+                  height: "90px",
+                }}
+                data-ad-client="ca-pub-5750524702011192"
+                data-ad-slot="4850953372"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+            </div>
           </LuxuryCard>
         </div>
 
         <LuxuryCard theme={theme} className="p-5 md:p-6">
-          <div className="mb-4 flex items-center justify-between gap-3">
+          <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <div className="flex items-center gap-2">
                 <h2
@@ -1003,11 +1027,11 @@ export default function TaiwanLotteryGenerator() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex gap-2">
               <button
                 type="button"
                 onClick={clearAllPins}
-                className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-bold ${t.secondary}`}
+                className={`flex-1 inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-bold ${t.secondary}`}
                 style={{ fontFamily: TITLE_FONT }}
               >
                 <PinOff className="h-4 w-4" />
@@ -1019,7 +1043,7 @@ export default function TaiwanLotteryGenerator() {
                 onClick={() =>
                   setHistory((prev) => prev.filter((item) => item.pinned))
                 }
-                className={`inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-bold ${t.danger}`}
+                className={`flex-1 inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-bold ${t.danger}`}
                 style={{ fontFamily: TITLE_FONT }}
               >
                 <Trash2 className="h-4 w-4" />
